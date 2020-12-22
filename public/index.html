@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#06343b" />
+  <meta name="description" content="Video Calling By Jan Elaaj .." />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jan ELaaj</title>
+  <!-- <link rel="shortcut icon" href="/images/logo.svg" /> -->
+  <link rel="stylesheet" type="text/css" href="../css/chat.css" />
+  <script src="https://kit.fontawesome.com/9d7bb7e31a.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="/js/jquery.ui.touch-punch.js"></script>
+</head>
+
+<body style="background-color: #06343b;" id="body" onresize="windowResized()">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <div id="header">
+    <a target="_blank" href="/">
+      <img src="/images/janlogo.png" alt="Neon" width="200" height="90" />
+    </a>
+  </div>
+  <audio id="ringtone">
+    <source src="/sounds/ringtone.mp3" type="audio/mpeg">
+  </audio>
+  <p id="remote-video-text"></p>
+  <video id="remote-video" autoplay playsinline></video>
+  <div id="moveable">
+    <p id="local-video-text">No webcam input</p>
+    <video id="local-video" autoplay muted playsinline></video>
+  </div>
+
+  <div style="background-color: #06343b;" class="multi-button">
+    <div class="buttonContainer">
+      <button id="callpatient" class="hoverButton" onclick="{createOffer()}">
+        <i id="callpatient" class="fas fa-phone-square fa-xs"></i>
+      </button>
+      <div class="HoverState" id="Calltext">Call Patient</div>
+    </div>
+    <div class="buttonContainer">
+      <button id="answer" class="hoverButton" onclick="{createAnswer()}">
+        <i id="answercallid" class="fas fa-phone fa-xs"></i>
+      </button>
+      <div class="HoverState" id="answertext">Pick Up Call</div>
+    </div>
+    <div class="buttonContainer">
+      <button class="hoverButton" onclick="{muteMicrophone()}">
+        <i id="mic-icon" class="fas fa-microphone fa-xs"></i>
+      </button>
+      <div class="HoverState" id="mic-text">Mute</div>
+    </div>
+    <div class="buttonContainer">
+      <button class="hoverButton" onclick="{pauseVideo()}">
+        <i class="fas fa-video fa-xs " id="video-icon"></i>
+      </button>
+      <div class="HoverState" id="video-text">Pause Video</div>
+    </div>
+    <div class="buttonContainer">
+      <button class="hoverButton" onclick="{searchPatientOrDoctor()}">
+        <i class="fa fa-search" id="video-icon"></i>
+      </button>
+      <div class="HoverState" id="video-text">Pause Video</div>
+    </div>
+    <div class="buttonContainer">
+      <button class="hoverButton" id="pip-button" onclick="{window.location.href = '/callcut'}">
+        <i class="fas fa-phone-slash fa-xs"></i>
+      </button>
+      <div class="HoverState" id="pip-text">End Call</div>
+    </div>
+
+  </div>
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+  <script src="https://cdn.rawgit.com/muaz-khan/DetectRTC/master/DetectRTC.js"></script>
+  <script id="chatJS" src="../js/chat.js"></script>
+</body>
+
+</html>
